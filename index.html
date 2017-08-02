@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kevin's Type Racer</title>
+    <script
+        src="http://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" type="text/css" href="typeracer.css" />
+
+</head>
+<body>
+  <!-- Nav Bar -->
+  <nav class="navbar navbar-light bg-faded">
+    <div class="container navbar-container">
+      <a href="#">
+        <img src="images/type-racer-logo.png" height="50" width="50">
+      </a>
+      <!--<%= link_to image_tag("WANDER-LOGO1.jpg",class:'logo', width: '140', height: '60', alt: ''), root_path %>-->
+
+      <ul class="nav navbar-nav navbar-right">
+
+        <!--<li><a href="/users/new"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>-->
+        <!--<% if user_signed_in? %>-->
+        <li><a rel='nofollow' href="#" data-method="delete"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+        <!--<% else %>-->
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <!--<% end %>-->
+      </ul>
+    </div>
+  </nav>
+  <!-- My Modal -->
+  <div id="myModal" class="modal fade" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 id="myModalLabel">Game will start in <span class="timer"></span></h3>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container car-container">
+    <img src="images/car-1.jpg" height="60" width="80">
+  </div>
+
+  <div class="container" id="game-container">
+
+    <div class="timer-container">
+      <span class="timer"></span>
+    </div>
+    <div class="jumbotron">
+      <!--The most characteristic circumstances of an intuition are a period of intense work on the problem accompanied by a desire for its solution, abandonment of the work perhaps with attention to something else, then the appearance of the idea with dramatic suddenness and often a sense of certainty. Often there is a feeling of exhilaration and perhaps surprise that the idea had not been thought of previously-->
+      <p id="text-paragraph">Alligator gives you money gives you a choice. Not having money sucks. You have to say no to so many things you want to say yes to.
+      </p>
+    </div>
+
+    <div class="col-md-6">
+      <form action="">
+        <!--<div class="form-group"></div>-->
+        <div class="form-group">
+          <div class="form-field">
+          <input type="text" name="type-input" id="type-input" class="form-control" placeholder="Type the above text here when the race starts" autocomplete="off">
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+
+
+
+  <script type="text/javascript" src="typeracer.js"></script>
+</body>
+</html>

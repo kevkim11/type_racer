@@ -1,0 +1,15 @@
+.highlight {
+    background-color: yellow;
+}
+
+.highlight-wrong {
+    background-color: red;
+}
+
+.highlight-none {
+    background-color: transparent;
+}
+
+#myModalLabel {
+    text-align: center;
+}
