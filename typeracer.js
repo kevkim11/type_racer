@@ -8,6 +8,7 @@ var strIndex = 0;     // needed for highlight
 var stoppedIndex = 0; // needed for highlight-wrong
 var wordIndex = 0; // needed for multi-character deletion
 var keyDown_inputValue; // used to compare keydown and keyup InputValue
+var wpm = $("#score");
 
 $("#type-input").on("keydown", function(event) {
   var lastInput = event.key;
@@ -54,8 +55,12 @@ $("#type-input").on("keydown", function(event) {
     "<span class='highlight-wrong'>" + paragraphStr.slice(strIndex, stoppedIndex) + "</span>" +
     "<span class='highlight-none'>" + paragraphStr.slice(stoppedIndex, paragraphStr.length) + "</span>");
   isWonGame();
+  $("#score").text(calculateWPM());
 });
 
+// Key up event: used to
+// (1) clear textfield when spacebar is clicked and
+// (2) Have the correct text highlighted when user deletes multiple characters
 $("#type-input").keyup(function (event) {
   var keyUp_lastInput = event.key;
   var keyUp_inputValue = $(this).val();
@@ -111,10 +116,12 @@ $(document).ready(function () {
   }, 1000);
 });
 
-
-// var timer = $(".timer");
+// Game Timer.
+// Starts when the game officially starts
+var numOfSecPassed = 1;
 function startGameTimer(){
   var gameTimer = setInterval(function(){
+    numOfSecPassed += 1;
     var myTime = timer.html();
     var ss = myTime.split(":");
     var dt = new Date();
@@ -133,4 +140,12 @@ function startGameTimer(){
       // alert("GameOver!");
     }
   }, 1000);
+}
+
+// Function to calculate Words Per Minute (WPM)
+// According to https://keyboard-racing.com/wpm_cpm_converter.html,
+// wpm = 5 * Characters Per Minute (CPM)
+function calculateWPM(){
+  var cpm = (strIndex/numOfSecPassed)*60;
+  return (cpm/5).toFixed();
 }
